@@ -1,0 +1,5 @@
+Window - cmd 실행
+cmd에서 작성한 .py파일이 있는 지점까지 이동(dir/cd 사용)
+.py가 있는 Directory로 이동했으면 'python (python 파일 명).py'
+-- 서버 동작 --
+Web Browser에서 hostname, port 입력해 동작
