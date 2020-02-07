@@ -1,0 +1,28 @@
+#참고자료
+#https://www.fun-coding.org/flask_basic-2.html
+import socket
+from flask import Flask, redirect, url_for, request
+
+#Flask 객체를 app에 할당
+app = Flask(__name__)
+
+#app 객체를 이용해 라우팅 경로를 설정
+#Web 상의 홈 화면
+@app.route('/')
+#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
+def rct():
+    return 'Hello World!'
+
+@app.route('/webtoon')
+#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
+def web():
+    return 'Hello Webtoon!'
+
+@app.route('/character')
+#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
+def cht():
+    return 'Hello Character!'
+
+#메인 모듈로 실행될 때 플라스크 서버 구동
+if __name__ == '__main__':
+    app.run(host = '127.0.0.1', port=8080, debug=True)
