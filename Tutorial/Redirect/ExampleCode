@@ -1,0 +1,30 @@
+#참고자료
+#https://mooneegee.blogspot.com/2017/10/python-flask-url-building-urlfor.html
+from flask import Flask, url_for, redirect
+
+#Flask 객체를 app에 할당
+app = Flask(__name__)
+
+#app 객체를 이용해 라우팅 경로를 설정
+#Web 상의 홈 화면
+@app.route('/user/<name>')
+#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
+def rct(name):
+    if name == 'admin':
+        return redirect(url_for('rct_admin'))
+    else:
+        return redirect(url_for('rct_guest', guest = name))
+
+@app.route('/admin')
+#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
+def rct_admin():
+    return 'Hello Admin!'
+
+@app.route('/guest/<guest>')
+#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
+def rct_guest(guest):
+    return 'Hello %s' % guest
+
+#메인 모듈로 실행될 때 플라스크 서버 구동
+if __name__ == '__main__':
+    app.run(host = '127.0.0.1', port=8080, debug=True)
