@@ -1,0 +1,5 @@
+예제들은 아래 순서로 진행하면 됩니다.
+
+1. Execute - flask를 실행하여 특정 url을 입력 시 원하는 결과(미리 입력해둔 text)가 나타나는 지 확인
+2. Redirect - 입력하는 url에 따라 서로 다르게 결과(미리 입력해둔 text)가 나타나는 지 확인
+3. Request - html의 form tag를 사용해 get/post 방식으로 입력받은 값에 따라 서로 다르게 routing하는 것을 확인
