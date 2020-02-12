@@ -1,56 +1,27 @@
-#참고자료
-#https://mooneegee.blogspot.com/2017/10/python-flask-http-get-post.html
-#https://flask-docs-kr.readthedocs.io/ko/latest/patterns/fileuploads.html
-#https://frhyme.github.io/python-libs/file_upload_on_flask/
-from flask import Flask, url_for, redirect, request, render_template
-from werkzeug.utils import secure_filename
+<!-- 문서 타입 및 html 버전을 선언: html5, html4, xhtml 등; html5 버전이라 선언 -->
+<!doctype html>
 
-#Flask 객체를 app에 할당
-app = Flask(__name__)
-#app 객체에 curr_dir라는 속성을 지정하고 현재 디렉토리를 저장
-import os
-app.config['curr_dir'] = os.getcwd()
-
-#app 객체를 이용해 라우팅 경로를 설정
-#Web 상의 홈 화면
-@app.route('/login', methods = ['POST', 'GET'])
-#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
-def login():
-    if request.method == 'POST':
-        user = request.form['이름']
-        return redirect(url_for('rct', name = user))
-    else:
-        user = request.args.get('이름')
-        return redirect(url_for('rct', name = user))
-
-@app.route('/success/<name>')
-#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
-def rct(name):
-    if name == 'admin':
-        return redirect(url_for('rct_admin'))
-    else:
-        return redirect(url_for('rct_guest', guest = name))
-
-@app.route('/admin')
-#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
-def rct_admin():
-    return render_template('admin.html')
-
-@app.route('/img', methods = ['POST', 'GET'])
-#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
-def upload_file():
-    if request.method == 'POST':
-        f = request.files['파일']
-        #업로드된 파일을 현재 디렉토리에 저장
-        f.save(os.path.join(app.config['curr_dir'], secure_filename(f.filename)))
-    from flask import send_from_directory
-    return send_from_directory(app.config['curr_dir'], secure_filename(f.filename))
-
-@app.route('/guest/<guest>')
-#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
-def rct_guest(guest):
-    return render_template('guest.html', guestname = guest)
-
-#메인 모듈로 실행될 때 플라스크 서버 구동
-if __name__ == '__main__':
-    app.run(host = '127.0.0.1', port=8080, debug=True)
+<!-- 참고자료: http://webberstudy.com/html-css/html-1/anchor-element-id-attribute/ -->
+<html>
+    <head>
+        <!-- 문서의 제목 -->
+        <title>flask example</title>
+        <!-- 페이지 인코딩 정보; 현재 페이지의 인코딩이 utf-8 방식으로 작성되었음을 표현 -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- 페이지 설명; 검색엔진이 주로 확인 -->
+        <meta name="Description" content="Flask에서 get/post 등 http 메소드들을 활용하는 예제" />
+        <!-- 페이지의 주요 키워드; 검색엔진이 주로 확인, 관련 검색어로 나왔을 때 찾아줌 -->
+        <meta name="Keywords" content="Flask, Http, Get, Post" />
+        <!-- 검색엔진이 페이지를 수집할 지 여부를 선언; 수집을 원하지 않으면 noindex, nofollow -->
+        <meta name="robots" content="index, follow" />
+    </head>
+    <body>
+        <!-- action은 이 form을 전송할 url을 지정, method는 form에 전송할 방식을 지정 -->
+        <form action = "http://127.0.0.1:8080/login" method = "post">
+            <!-- label은 해당 form 요소에 어떤 값을 넣아야 하는지 라벨을 붙여주는 요소 -->
+            <label for="nameOne">이름을 입력하세요 &nbsp; &nbsp;</label>
+            <input id = "nameOne" type = "text" name = "이름" />
+            <input type = "submit" value = "제출" />
+        </form>
+    </body>
+</html>
