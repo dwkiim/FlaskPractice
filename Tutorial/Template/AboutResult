@@ -1,8 +1,8 @@
-MainHTML을 실행
+MainHTML을 실행(왼쪽 창과 같은 화면)
 
-admin 입력 후 제출 시 admin.html로 연결(ExampleCode_AdminHTML)
-그 외 값 입력 후 제출 시 guest.html로 연결(ExampleCode_GuestHTML)
+admin 입력 후 제출 시 admin.html로 연결(ExampleCode_AdminHTML, 오른쪽 두번째 화면)
+그 외 값 입력 후 제출 시 guest.html로 연결(ExampleCode_GuestHTML, 오른쪽 첫번째 화면)
 
 admin.html로 연결하면 파일을 업로드할 수 있음(이미지 파일만 가능)
 파일을 제출하면 /img로 라우팅 되면서 업로드한 파일을 .py(flask를 이용해 routing한 코드)가 있는 곳에 해당 파일이 저장
-/img는 return으로 send_from_dictionary라는 기능을 통해 새로 저장한 파일을 불러와 페이지에 띄워줌
+/img는 return으로 send_from_dictionary라는 기능을 통해 새로 저장한 파일을 불러와 페이지에 띄워줌(오른쪽 마지막 화면)
