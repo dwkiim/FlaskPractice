@@ -1,0 +1,22 @@
+<!-- 문서 타입 및 html 버전을 선언: html5, html4, xhtml 등; html5 버전이라 선언 -->
+<!doctype html>
+
+<!-- 참고자료: http://webberstudy.com/html-css/html-3/form-2/ -->
+<!-- 참고자료: https://sqlplus.tistory.com/entry/%ED%8C%8C%EC%9D%BC%EC%B2%A8%EB%B6%80%EC%97%90-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%A7%8C-%EC%B2%A8%EB%B6%80%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8F%84%EB%A1%9D-%EC%B2%98%EB%A6%AC-input-file -->
+<html>
+    <head>
+        <!-- 문서의 제목 -->
+        <title>flask example for admin</title>
+    </head>
+    <body>
+        <!-- action은 이 form을 전송할 url을 지정, method는 form에 전송할 방식을 지정 -->
+        <form action = "http://127.0.0.1:8080/img" method = "post" enctype="multipart/form-data">
+            <!-- label은 해당 form 요소에 어떤 값을 넣아야 하는지 라벨을 붙여주는 요소 -->
+            <label for="fileOne">파일을 선택해주세요 &nbsp; &nbsp;</label>
+            <!-- img 파일만 지원 -->
+            <input id = "fileOne" type = "file" name = "파일" accept="image/gif, image/jpeg, image/png"/>
+            <input type = "submit" value = "업로드" />
+            <input type = "reset" value = "취소" />
+        </form>
+    </body>
+</html>
