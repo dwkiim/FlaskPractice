@@ -1,2 +1,2 @@
 localhost:8080/login으로 들어가면 왼쪽 창과 같이 error가 발생
-html 파일 실행 후 해당 페이지에서 모든 내용 작성하면 python에서 로직에  routing
+html 파일 실행 후 해당 페이지에서 모든 내용 작성하면 python code에 따라 routing 해줌
