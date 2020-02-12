@@ -1,0 +1,13 @@
+<!-- 문서 타입 및 html 버전을 선언: html5, html4, xhtml 등; html5 버전이라 선언 -->
+<!doctype html>
+
+<!-- 참고자료: http://webberstudy.com/html-css/html-1/anchor-element-id-attribute/ -->
+<html>
+    <head>
+        <!-- 문서의 제목 -->
+        <title>flask example for admin</title>
+    </head>
+    <body>
+        Hello <em>{{guestname}}</em> !!
+    </body>
+</html>
