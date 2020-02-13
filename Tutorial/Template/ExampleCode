@@ -1,5 +1,5 @@
 #참고자료
-#https://mooneegee.blogspot.com/2017/10/python-flask-http-get-post.html
+#https://mooneegee.blogspot.com/2017/10/python-flask-template-web-template.html
 #https://flask-docs-kr.readthedocs.io/ko/latest/patterns/fileuploads.html
 #https://frhyme.github.io/python-libs/file_upload_on_flask/
 from flask import Flask, url_for, redirect, request, render_template
