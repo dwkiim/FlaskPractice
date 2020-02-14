@@ -1,0 +1,7 @@
+MainHTML을 실행(왼쪽 창과 같은 화면)
+
+admin 입력 후 제출 시 admin.html로 연결(Tutorial/Template/AboutResult 참고)
+그 외 값 입력 후 제출 시 guest.html로 연결(ExampleCode_GuestHTML, 오른쪽 위 화면)
+
+guest.html로 연결하면 개인 정보를 입력받음(이름은 수정 불가)
+제출을 누르면 info.html로 연결하여 입력한 개인 정보를 보여줌(오른쪽 아래 화면)
