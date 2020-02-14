@@ -1,0 +1,20 @@
+<!-- 문서 타입 및 html 버전을 선언: html5, html4, xhtml 등; html5 버전이라 선언 -->
+<!doctype html>
+
+<!-- 참고자료: https://thrillfighter.tistory.com/572 -->
+<html>
+    <head>
+        <!-- 문서의 제목 -->
+        <title>flask example for guest</title>
+    </head>
+    <body>
+        <table border = 1>
+            {% for key, value in result.items() %}
+               <tr>
+                  <th> {{ key }} </th>
+                  <td> {{ value }} </td>
+               </tr>
+            {% endfor %}
+         </table>
+    </body>
+</html>
