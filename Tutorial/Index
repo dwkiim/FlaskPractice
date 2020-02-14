@@ -4,3 +4,4 @@
 2. Redirect - 입력하는 url에 따라 서로 다르게 결과(미리 입력해둔 text)가 나타나는 지 확인
 3. Request - html의 form tag를 사용해 get/post 방식으로 입력받은 값에 따라 서로 다르게 routing하는 것을 확인
 4. Template - render_template를 이용해 html 파일을 연결하고 파일 업로드 및 이미지 미리보기 기능 
+5. Form - form tag를 사용해 저장한 정보 값을 다른 페이지로 전달하는 기능을 확인
