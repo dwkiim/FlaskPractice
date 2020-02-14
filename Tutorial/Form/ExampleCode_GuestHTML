@@ -1,0 +1,28 @@
+<!-- 문서 타입 및 html 버전을 선언: html5, html4, xhtml 등; html5 버전이라 선언 -->
+<!doctype html>
+
+<!-- 참고자료: https://thrillfighter.tistory.com/572 -->
+<!-- 참고자료: https://blog.naver.com/PostView.nhn?blogId=govlrhaehfdl&logNo=221231502012&parentCategoryNo=&categoryNo=6&viewDate=&isShowPopularPosts=false&from=postView -->
+<html>
+    <head>
+        <!-- 문서의 제목 -->
+        <title>flask example for guest</title>
+    </head>
+    <body>
+        <!-- action은 이 form을 전송할 url을 지정, method는 form에 전송할 방식을 지정, 결과 창을 현재창에 띄우려면 target을 _self, 새창에 띄우려면 _blank로 설정 -->
+        <form action = "http://127.0.0.1:8080/guest/info" method = "post" enctype="multipart/form-data" target="_blank">
+            <!-- label은 해당 form 요소에 어떤 값을 넣아야 하는지 라벨을 붙여주는 요소 -->
+            <input type="hidden" name="이름" value="{{guestname}}">
+            <fieldset>
+            <legend>개인 정보</legend>
+            <p>이름: {{guestname}}</p>
+            <p>나이: <input type="text" name="나이" size="2"></p>
+            <p>성별: <select name="성별">
+                <option value="male"> 남성</option>
+                <option value="female"> 여성</option>
+            </select></p>
+            <p><input type = "submit" value = "제출" /></p>
+            </fieldset>
+        </form>
+    </body>
+</html>
