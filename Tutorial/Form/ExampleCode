@@ -1,0 +1,63 @@
+#참고자료
+#https://mooneegee.blogspot.com/2017/11/python-flask-form-template.html
+#https://flask-docs-kr.readthedocs.io/ko/latest/patterns/fileuploads.html
+#https://frhyme.github.io/python-libs/file_upload_on_flask/
+from flask import Flask, url_for, redirect, request, render_template
+from werkzeug.utils import secure_filename
+
+#Flask 객체를 app에 할당
+app = Flask(__name__)
+#app 객체에 curr_dir라는 속성을 지정하고 현재 디렉토리를 저장
+import os
+app.config['curr_dir'] = os.getcwd()
+
+#app 객체를 이용해 라우팅 경로를 설정
+#Web 상의 홈 화면
+@app.route('/login', methods = ['POST', 'GET'])
+#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
+def login():
+    if request.method == 'POST':
+        user = request.form['이름']
+        return redirect(url_for('rct', name = user))
+    else:
+        user = request.args.get('이름')
+        return redirect(url_for('rct', name = user))
+
+@app.route('/success/<name>')
+#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
+def rct(name):
+    if name == 'admin':
+        return redirect(url_for('rct_admin'))
+    else:
+        return redirect(url_for('rct_guest', guest = name))
+
+@app.route('/admin')
+#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
+def rct_admin():
+    return render_template('admin.html')
+
+@app.route('/img', methods = ['POST', 'GET'])
+#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
+def upload_file():
+    if request.method == 'POST':
+        f = request.files['파일']
+        #업로드된 파일을 현재 디렉토리에 저장
+        f.save(os.path.join(app.config['curr_dir'], secure_filename(f.filename)))
+    from flask import send_from_directory
+    return send_from_directory(app.config['curr_dir'], secure_filename(f.filename))
+
+@app.route('/guest/<guest>')
+#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
+def rct_guest(guest):
+    return render_template('guest.html', guestname = guest)
+
+@app.route('/guest/info', methods = ['POST', 'GET'])
+#해당 라우팅 경로로 요청이 올 때 실행할 함수를 작성
+def guest_info():
+    if request.method == 'POST':
+        resultOne = request.form
+    return render_template('info.html', result = resultOne)
+
+#메인 모듈로 실행될 때 플라스크 서버 구동
+if __name__ == '__main__':
+    app.run(host = '127.0.0.1', port=8080, debug=True)
